@@ -10,9 +10,16 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child: Text('Main page'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text('Main page'),
+            Image.asset('assets/logo.png'),
+          ],
+        ),
       ),
     );
   }
