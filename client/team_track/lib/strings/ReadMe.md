@@ -1,0 +1,1 @@
+Here we put any string that we use in any page (we should not write the string directly in any page)
