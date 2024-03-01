@@ -1,5 +1,5 @@
 import express from "express";
-import {getNotifications,getSpecificNotification,createNotification,deleteNotification} from "../controllers/taskControllers";
+import {getNotifications,getSpecificNotification,createNotification,deleteNotification} from "../controllers/notificationControllers.js";
 
 const router=express.Router();
 

@@ -4,7 +4,7 @@ const taskSchema=new mongoose.Schema({
     name:String,
     type:String,
     project:{
-        type:mongsose.Types.ObjectId,
+        type:mongoose.Types.ObjectId,
         ref:"Project"
     },
     createdby:{

@@ -1,5 +1,5 @@
 import express from "express";
-import {getWorkdays,getSpecificWorkday,createWorkday,deleteWorkday} from "../controllers/taskControllers";
+import {getWorkdays,getSpecificWorkday,createWorkday,deleteWorkday} from "../controllers/workdayControllers.js";
 
 const router=express.Router();
 

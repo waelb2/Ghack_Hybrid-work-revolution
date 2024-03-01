@@ -11,7 +11,7 @@ export const getWorkdays=async (req,res)=>{
     }
 }
 
-export const getSpecificworkDay=async(req,res)=>{
+export const getSpecificWorkday=async(req,res)=>{
     try {
         const {id}=req.params;
         const workday=await Workday.findById({_id:id});
@@ -32,7 +32,7 @@ export const createWorkday=async(req,res)=>{
     }
 }
 
-export const deleteTask=async (req,res)=>{
+export const deleteWorkday=async (req,res)=>{
     try {
         await Workday.deleteOne({_id:req.params.id});
         res.status(201).json({message:"workday deleted succesfullly"});

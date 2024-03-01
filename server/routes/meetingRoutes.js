@@ -1,5 +1,5 @@
 import express from "express";
-import {getMeetings,getSpecificMeeting,createMeeting,deleteMeeting} from "../controllers/taskControllers";
+import {getMeetings,getSpecificMeeting,createMeeting,deleteMeeting} from "../controllers/meetingControllers.js";
 
 const router=express.Router();
 
