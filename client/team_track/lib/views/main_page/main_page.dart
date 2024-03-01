@@ -39,6 +39,7 @@ class MainPage extends StatelessWidget {
                 children: [
                   Flexible(child: SideBar()),
                   Expanded(child: CurrentPage()),
+                  CurrentPage(),
                 ],
               ),
             )
