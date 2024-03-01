@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:team_track/utils/enums.dart';
@@ -36,7 +38,7 @@ class MainPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Flexible(child: SideBar()),
-                  //CurrentPage(),
+                  Expanded(child: CurrentPage()),
                 ],
               ),
             )
@@ -51,18 +53,17 @@ class CurrentPage extends StatelessWidget {
   final MainPageController _controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return
-      (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks) ?
-        ProjectsAndTasks()
-      : (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees) ?
-        MyEmployees()
-      : (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar) ?
-        Calendar()
-      : (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace) ?
-        MeetingSpacePage()
-      : (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics) ?
-        AnalyticsPage()
-      : SettingsPage();
+    return Obx(() => (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks) ?
+    ProjectsAndTasks()
+        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees) ?
+    MyEmployees()
+        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar) ?
+    Calendar()
+        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace) ?
+    MeetingSpacePage()
+        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics) ?
+    AnalyticsPage()
+        : SettingsPage());
   }
 }
 

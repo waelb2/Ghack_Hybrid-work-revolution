@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:team_track/utils/colors.dart';
 import 'package:team_track/utils/enums.dart';
@@ -19,7 +17,8 @@ class SideBar extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 60),
-            child: Column(
+            child: Obx(() {
+              return Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +43,9 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.ProjectsAndTasks);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -91,15 +92,17 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.MyEmployees);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                                ? Image.asset('assets/projects.png')
-                                : Image.asset('assets/projects_no_selected.png'),
+                                ? Image.asset('assets/employees.png')
+                                : Image.asset('assets/emplyees_non.png'),
                             const SizedBox(width: 12,),
                             Text(
                               MyStrings.myEmployees,
@@ -121,7 +124,7 @@ class SideBar extends StatelessWidget {
                   children: [
                     Opacity(
                       opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar)
                           ? 1 : 0,
                       child: Container(
                         width: 12,
@@ -137,21 +140,23 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.Calendar);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                                ? Image.asset('assets/projects.png')
-                                : Image.asset('assets/projects_no_selected.png'),
+                            (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar)
+                                ? Image.asset('assets/calendar.png')
+                                : Image.asset('assets/calendar_non.png'),
                             const SizedBox(width: 12,),
                             Text(
-                              MyStrings.myEmployees,
+                              MyStrings.calendar,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar)
                                       ? MyColors.primaryColor : MyColors.textNonSelected
                               ),
                             ),
@@ -167,7 +172,7 @@ class SideBar extends StatelessWidget {
                   children: [
                     Opacity(
                       opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace)
                           ? 1 : 0,
                       child: Container(
                         width: 12,
@@ -183,21 +188,23 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.MettingSpace);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                                ? Image.asset('assets/projects.png')
-                                : Image.asset('assets/projects_no_selected.png'),
+                            (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace)
+                                ? Image.asset('assets/meeting.png')
+                                : Image.asset('assets/meeting_non.png'),
                             const SizedBox(width: 12,),
                             Text(
-                              MyStrings.myEmployees,
+                              MyStrings.metting,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace)
                                       ? MyColors.primaryColor : MyColors.textNonSelected
                               ),
                             ),
@@ -213,7 +220,7 @@ class SideBar extends StatelessWidget {
                   children: [
                     Opacity(
                       opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics)
                           ? 1 : 0,
                       child: Container(
                         width: 12,
@@ -229,21 +236,23 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.Analytics);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                                ? Image.asset('assets/projects.png')
-                                : Image.asset('assets/projects_no_selected.png'),
+                            (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics)
+                                ? Image.asset('assets/analytics.png')
+                                : Image.asset('assets/analytics_non.png'),
                             const SizedBox(width: 12,),
                             Text(
-                              MyStrings.myEmployees,
+                              MyStrings.analytics,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics)
                                       ? MyColors.primaryColor : MyColors.textNonSelected
                               ),
                             ),
@@ -259,7 +268,7 @@ class SideBar extends StatelessWidget {
                   children: [
                     Opacity(
                       opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Settings)
                           ? 1 : 0,
                       child: Container(
                         width: 12,
@@ -275,21 +284,23 @@ class SideBar extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        _controller.changePage(ManagerSideBarElements.Settings);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                                ? Image.asset('assets/projects.png')
-                                : Image.asset('assets/projects_no_selected.png'),
+                            (_controller.managerSideBarElement.value == ManagerSideBarElements.Settings)
+                                ? Image.asset('assets/settings.png')
+                                : Image.asset('assets/settings_non.png'),
                             const SizedBox(width: 12,),
                             Text(
-                              MyStrings.myEmployees,
+                              MyStrings.settings,
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                                  color: (_controller.managerSideBarElement.value == ManagerSideBarElements.Settings)
                                       ? MyColors.primaryColor : MyColors.textNonSelected
                               ),
                             ),
@@ -300,7 +311,8 @@ class SideBar extends StatelessWidget {
                   ],
                 ),
               ],
-            ),
+            );
+}),
           )
         ],
       ),
