@@ -36,7 +36,8 @@ class MainPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Flexible(child: SideBar()),
-                  //CurrentPage(),
+
+                  CurrentPage(),
                 ],
               ),
             )

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class MyStyles {
@@ -10,3 +12,16 @@ class MyStyles {
       fontWeight: FontWeight.w700
   );
 }
+
+class TableStyle {
+
+  static TextStyle ktableHeaderTextStyle = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+  
+}
+
+
+ 
