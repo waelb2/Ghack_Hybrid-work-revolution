@@ -4,13 +4,15 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config()
-import routes from "./routes/routes.js";
-//import userRoutes from "./routes/userRoutes.js";
+import connectDB from "./db/connect.js"
+//import routes from "./routes/routes.js";
+import userRoutes from "./routes/userRoutes.js";
 /*import taskRoutes from "./routes/taskRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import workdayRoutes from "./routes/workdayRoutes.js";
 import meetingRoutes from "./routes/meetingRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";*/
+import authRoutes from "./routes/authRoutes.js"
 
 const app=express();
 
@@ -19,6 +21,7 @@ app.use(bodyParser.json({limit:"30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}));
 app.use(cors());
 
+app.use("/auth", authRoutes)
 //app.use("/users",userRoutes);
 //app.use("/tasks",taskRoutes);
 //app.use("/projects",projectRoutes);
@@ -29,7 +32,6 @@ app.use(cors());
 
 
 const port = process.env.PORT || 3000
-
 const start = async () => {
   try {
     await connectDB(process.env.DATABASE_URI)
