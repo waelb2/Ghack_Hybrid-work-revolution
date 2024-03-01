@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TeamTrack',
