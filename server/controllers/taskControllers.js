@@ -40,3 +40,24 @@ export const deleteTask=async (req,res)=>{
         res.status(404).json({message:error.message})
     }
 }
+
+export const getAllTaskForUser=async(req,res)=>{
+    try {
+        const {id}=req.params;
+        const tasks=await Task.find({affectedTo:id});
+        res.status(201).json(tasks)
+    } catch (error) {
+        res.status(404).json({message:error.message})
+    }
+}
+
+export const updateProgress=async(req,res)=>{
+    try {
+        const {id}=req.params;
+        const {progress}=req.body;
+        const response =await User.findByIdAndUpdate({_id:id},{progress:progress},{new:true});
+        res.status(201).json(response)
+    } catch (error) {
+        res.status(409).json({message:error.message})
+    }
+}
