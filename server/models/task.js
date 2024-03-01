@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const taskSchema=new mongoose.Schema({
     name:String,
     type:String,
+    project:{
+        type:mongsose.Types.ObjectId,
+        ref:"Project"
+    },
     createdby:{
         type:mongoose.Types.ObjectId,
         ref:"User"
