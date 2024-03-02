@@ -26,7 +26,7 @@ export const login = async(req, res)=>{
         // Generate a JWT with a 1-day expiry
         const token = user.createJWT();
       
-        return res.status(StatusCode.OK).json({ user: { name: user.name, verified: user.verified }, token });
+        return res.status(StatusCodes.OK).json({ user: { name: user.name, verified: user.verified }, token });
       
       } catch (err) {
         console.error(err);
