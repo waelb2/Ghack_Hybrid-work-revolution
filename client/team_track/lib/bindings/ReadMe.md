@@ -1,1 +1,0 @@
-Here we make our pages bindigns of GetX

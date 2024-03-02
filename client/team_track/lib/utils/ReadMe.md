@@ -1,1 +1,0 @@
-Here we put any thing useful we can use later (like Enums, strings, colors ...)
