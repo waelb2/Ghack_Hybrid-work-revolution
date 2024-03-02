@@ -1,17 +1,25 @@
 import {StatusCodes} from "http-status-codes"
 import cloudinary  from "../utils/cloudinary.js"
 import Screenshot from "../models/screenshot.js"
+import axios from "axios"
 import fs from "fs"
 import path from "path" 
 
 export const uploadScreenshot = async(req, res)=>{
     try {
-
-    const filePath = req.file.path;
-    const result = await cloudinary.uploader.upload(filePath,{
-        folder:"screenshots"
-     }); 
-     
+   // const filePath = req.file.path;
+   
+   // const result = await cloudinary.uploader.upload(filePath,{
+   //    folder:"screenshots"
+   // }); 
+   const response=await axios.post("https://d5a7-41-111-189-195.ngrok-free.app/",
+   {img_url:"https://www.altium.com/documentation/sites/default/files/wiki_attachments/298457/Properties%20Image.png", job_title:"softaware enginner"});
+   console.log(response.data)
+   if(response.data.result=="yes"){
+      console.log("yes")
+   }else{
+      console.log("no")
+   }
      const {userId} = req.user
      const imageUrl = result.secure_url;
      const sc = new Screenshot({
