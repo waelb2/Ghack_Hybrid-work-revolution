@@ -10,6 +10,7 @@ const userSchema=new mongoose.Schema({
     joinDate:Date,
     typeOfWork:String,
     role:String,
+    status:String,
     Department:String,
     calendar:{
         type:String,
