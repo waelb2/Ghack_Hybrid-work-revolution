@@ -1,17 +1,19 @@
+import os
 import pyautogui
-import datetime
+
+# Path to the screenshot
+screenshot_path = "screenshot.png"
+
+# Check if the screenshot already exists
+if os.path.exists(screenshot_path):
+    # If it exists, delete it
+    os.remove(screenshot_path)
+    print("Existing screenshot.png deleted")
 
 # Take a screenshot
 screenshot = pyautogui.screenshot()
 
-# Get the current date and time
-now = datetime.datetime.now()
-
-# Format the date and time as a string
-now_str = now.strftime("%Y-%m-%d_%H-%M-%S")
-
 # Save the screenshot to a file
-filename = f"screenshot_{now_str}.png"
-screenshot.save(filename)
+screenshot.save(screenshot_path)
 
-print(f"Screenshot saved as {filename}")
+print("Screenshot saved as screenshot.png")

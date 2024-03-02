@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:team_track/utils/colors.dart';
@@ -290,9 +290,23 @@ class SideBarWorker extends StatelessWidget {
                       onTap: () async{
                         _sideBarController.isWorking.value = true;
                         _sideBarController.isPaused.value = false;
-                        Timer.periodic(const Duration(seconds: 10), (timer) {
+                        Timer.periodic(const Duration(seconds: 30), (timer) async{
                           executePythonScript();
+                          /// ****************************************************************
+                          File imageFile = File('screenshot.png');
+                          // Create a FormData object
+                          var dioClient = dio.Dio();
+                          dio.FormData formData = dio.FormData.fromMap({
+                            "file": await dio.MultipartFile.fromFile(imageFile.path, filename: "screenshot.png"),
+                            // Add other fields if needed
+                          });
+                          // Send the POST request
+                          var response = await dioClient.post(
+                            'http://your-server.com/uploads/screenshot', // replace with your server's URL
+                            data: formData,
+                          );
                         });
+                        /// ****************************************************************
                         /*Process process = await Process.start('python', ['screenshot.py']);
                         // Log the output of the script
                         process.stdout.transform(utf8.decoder).listen((data) {

@@ -38,6 +38,8 @@ dependencies:
   get: ^4.6.6
   google_fonts: ^6.1.0
   syncfusion_flutter_calendar: ^24.2.8
+  dio: ^5.4.1
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
