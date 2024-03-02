@@ -1,9 +1,6 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
+import 'package:team_track/utils/colors.dart';
 import 'package:team_track/utils/enums.dart';
 import 'package:team_track/views/analytics/amalytics_page.dart';
 import 'package:team_track/views/main_page/controllers/main_page_controller.dart';
@@ -17,12 +14,12 @@ import '../calendar/calendar.dart';
 
 class MainPage extends StatelessWidget {
   final MainPageController _controller = Get.put(MainPageController());
+
   MainPage({super.key});
 
-
   /**
-   The main page is the only page that have scaffold, which will contain the navbar and the sidebar.
-   Than the body of the page will change according to the section selected in the sidebar
+      The main page is the only page that have scaffold, which will contain the navbar and the sidebar.
+      Than the body of the page will change according to the section selected in the sidebar
    **/
 
   @override
@@ -37,7 +34,8 @@ class MainPage extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Flexible(child: SideBar()),
+                  SideBar(),
+                  //Flexible(child: SideBar()),
                   Expanded(child: CurrentPage()),
                 ],
               ),
@@ -48,22 +46,31 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
 class CurrentPage extends StatelessWidget {
   CurrentPage({super.key});
+
   final MainPageController _controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
-    return Obx(() => (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks) ?
-    ProjectsAndTasks()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees) ?
-    MyEmployees()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar) ?
-    Calendar()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace) ?
-    MeetingSpacePage()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics) ?
-    AnalyticsPage()
-        : SettingsPage());
+    return Obx(() => Container(
+      color: MyColors.background,
+        child: (_controller.managerSideBarElement.value ==
+                ManagerSideBarElements.ProjectsAndTasks)
+            ? ProjectsAndTasks()
+            : (_controller.managerSideBarElement.value ==
+                    ManagerSideBarElements.MyEmployees)
+                ? MyEmployees()
+                : (_controller.managerSideBarElement.value ==
+                        ManagerSideBarElements.Calendar)
+                    ? Calendar()
+                    : (_controller.managerSideBarElement.value ==
+                            ManagerSideBarElements.MettingSpace)
+                        ? MeetingSpacePage()
+                        : (_controller.managerSideBarElement.value ==
+                                ManagerSideBarElements.Analytics)
+                            ? AnalyticsPage()
+                            : SettingsPage()));
   }
 }
-

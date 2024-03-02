@@ -25,19 +25,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks)
-                      ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks)
+                        ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),
@@ -74,19 +77,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
-                          ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees)
+                            ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),
@@ -122,19 +128,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar)
-                          ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar)
+                            ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),
@@ -170,19 +179,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace)
-                          ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace)
+                            ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),
@@ -218,19 +230,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics)
-                          ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics)
+                            ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),
@@ -266,19 +281,22 @@ class SideBar extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Opacity(
-                      opacity:
-                      (_controller.managerSideBarElement.value == ManagerSideBarElements.Settings)
-                          ? 1 : 0,
-                      child: Container(
-                        width: 12,
-                        height: 40,
-                        margin: const EdgeInsets.only(right: 20),
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: const BorderRadius.only(
-                            topRight:  Radius.circular(14.0),
-                            bottomRight: Radius.circular(14.0),
+                    Hero(
+                      tag: 'elem',
+                      child: Opacity(
+                        opacity:
+                        (_controller.managerSideBarElement.value == ManagerSideBarElements.Settings)
+                            ? 1 : 0,
+                        child: Container(
+                          width: 12,
+                          height: 40,
+                          margin: const EdgeInsets.only(right: 20),
+                          decoration: BoxDecoration(
+                            color: MyColors.primaryColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight:  Radius.circular(14.0),
+                              bottomRight: Radius.circular(14.0),
+                            ),
                           ),
                         ),
                       ),

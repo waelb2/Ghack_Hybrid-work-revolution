@@ -4,3 +4,7 @@ enum ManagerSideBarElements {
 enum WorkerSideBarElements {
   ProjectsAndTasks, Calendar, MettingSpace, Collaboration
 }
+
+enum DisplayCalendar {
+  month, week, day
+}
