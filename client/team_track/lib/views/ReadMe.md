@@ -1,0 +1,1 @@
+Here we make all the content of our pages (page with it sub widgets)
