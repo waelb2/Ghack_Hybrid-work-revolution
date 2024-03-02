@@ -7,6 +7,6 @@ async function deleteImage(publicId) {
     console.error('Error deleting image:', error);
   }
 }
-
+export default deleteImage;
 
 return deleteImage;
