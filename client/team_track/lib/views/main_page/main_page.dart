@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +18,6 @@ class MainPage extends StatelessWidget {
   final MainPageController _controller = Get.put(MainPageController());
   MainPage({super.key});
 
-
   /**
    The main page is the only page that have scaffold, which will contain the navbar and the sidebar.
    Than the body of the page will change according to the section selected in the sidebar
@@ -37,9 +35,8 @@ class MainPage extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Flexible(child: SideBar()),
+                  SideBar(),
                   Expanded(child: CurrentPage()),
-                  CurrentPage(),
                 ],
               ),
             )
@@ -49,22 +46,27 @@ class MainPage extends StatelessWidget {
     );
   }
 }
+
 class CurrentPage extends StatelessWidget {
   CurrentPage({super.key});
   final MainPageController _controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Obx(() => (_controller.managerSideBarElement.value == ManagerSideBarElements.ProjectsAndTasks) ?
-    ProjectsAndTasks()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MyEmployees) ?
-    MyEmployees()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Calendar) ?
-    Calendar()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.MettingSpace) ?
-    MeetingSpacePage()
-        : (_controller.managerSideBarElement.value == ManagerSideBarElements.Analytics) ?
-    AnalyticsPage()
-        : SettingsPage());
+    return Obx(() => (_controller.managerSideBarElement.value ==
+            ManagerSideBarElements.ProjectsAndTasks)
+        ? ProjectsAndTasks()
+        : (_controller.managerSideBarElement.value ==
+                ManagerSideBarElements.MyEmployees)
+            ? MyEmployees()
+            : (_controller.managerSideBarElement.value ==
+                    ManagerSideBarElements.Calendar)
+                ? Calendar()
+                : (_controller.managerSideBarElement.value ==
+                        ManagerSideBarElements.MettingSpace)
+                    ? MeetingSpacePage()
+                    : (_controller.managerSideBarElement.value ==
+                            ManagerSideBarElements.Analytics)
+                        ? AnalyticsPage()
+                        : SettingsPage());
   }
 }
-
