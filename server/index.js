@@ -41,7 +41,7 @@ app.use("/projects",projectRoutes);
 app.use("/workdays",workdayRoutes);
 app.use("/meeting",meetingRoutes);
 app.use("/notifications",notificationRoutes);
-app.use("/uploads", uploadsRoutes);
+app.use("/uploads",uploadsRoutes);
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)

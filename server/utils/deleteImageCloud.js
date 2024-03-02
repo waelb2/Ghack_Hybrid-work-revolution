@@ -1,4 +1,4 @@
-import cloudinary from "./cloudinary";
+import cloudinary from "./cloudinary.js";
 async function deleteImage(publicId) {
   try {
     const result = await cloudinary.uploader.destroy(publicId);
@@ -9,4 +9,4 @@ async function deleteImage(publicId) {
 }
 export default deleteImage;
 
-return deleteImage;
+// return deleteImage;

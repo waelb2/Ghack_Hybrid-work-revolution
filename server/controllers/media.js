@@ -5,37 +5,34 @@ import axios from "axios"
 import fs from "fs"
 import path from "path" 
 import deleteImage from "../utils/deleteImageCloud.js"
+import User from "../models/user.js"
 
 export const uploadScreenshot = async(req, res)=>{
     try {
    const filePath = req.file.path;
+   //const {userId} = req.user
+   const userId="65e1dca90f9a404d14e90efc";
    
    const result = await cloudinary.uploader.upload(filePath,{
       folder:"screenshots"
    }); 
    const ImagePublicId = result.public_id; 
-   // const response=await axios.post("https://c7e5-41-111-189-195.ngrok-free.app/",
-   // {img_url:"https://www.altium.com/documentation/sites/default/files/wiki_attachments/298457/Properties%20Image.png", job_title:"softaware enginner"});
-   // console.log(response.data)
+   const imageUrl = result.secure_url;
+
    try {
-      const response=await fetch("https://34dd-41-111-189-195.ngrok-free.app/",{method:"POST", headers: {
+      const user = await User.findById(userId);
+      var response =await fetch(process.env.MODEL_SERVER,{method:"POST", headers: {
       'Content-Type': 'application/json'
-    },body:JSON.stringify({img_url:"https://www.altium.com/documentation/sites/default/files/wiki_attachments/298457/Properties%20Image.png", job_title:"design"})})
-    const data= await response.json();
-    console.log(data);
-    res.send("hello");
+    },body:JSON.stringify({img_url:imageUrl, job_title:user.Department})})
+    var data= await response.json();
 
    } catch (error) {
       console.log(error.message)
    }
    
-   if(response.data.result=="yes"){
-      console.log("yes")
+   if(data.result=="yes"){
       deleteImage(ImagePublicId);
    }else{
-      console.log("no")
-      const {userId} = req.user
-      const imageUrl = result.secure_url;
       const sc = new Screenshot({
         userId,
         imageUrl,
@@ -52,7 +49,7 @@ export const uploadScreenshot = async(req, res)=>{
             })
         }
     })
-    res.status(StatusCodes.OK).json({msg:"Screenshot uploaded successfully"})
+    res.status(StatusCodes.OK).json({msg:"Screenshot uploaded successfully and AI result is "+data.result});
     } catch (err) {
 
        console.log(err) 
