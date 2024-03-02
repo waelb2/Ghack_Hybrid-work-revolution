@@ -8,6 +8,9 @@ dotenv.config()
 
 import connectDB from "./db/connect.js";
 
+
+// routers 
+
 import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
@@ -15,7 +18,14 @@ import projectRoutes from "./routes/projectRoutes.js";
 import workdayRoutes from "./routes/workdayRoutes.js";
 import meetingRoutes from "./routes/meetingRoutes.js";
 import notificationRoutes from "./routes/notificationRoutes.js";
+import uploadsRoutes from "./routes/mediaRoutes.js"
 
+
+// Middlewares 
+
+import authMiddleware from "./middlewares/authentication.js";
+import notFoundMiddleware from "./middlewares/not-found.js"; 
+import errorHandlerMiddleware from  "./middlewares/error-handler.js"
 
 const app=express();
 
@@ -31,8 +41,9 @@ app.use("/projects",projectRoutes);
 app.use("/workdays",workdayRoutes);
 app.use("/meeting",meetingRoutes);
 app.use("/notifications",notificationRoutes);
+app.use("/uploads",authMiddleware, uploadsRoutes);
 
-
+app.use(notFoundMiddleware)
 
 const port = process.env.PORT || 3000
 const start = async () => {

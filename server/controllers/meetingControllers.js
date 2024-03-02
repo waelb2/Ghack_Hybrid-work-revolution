@@ -1,6 +1,6 @@
 
 import Meeting from "../models/meeting.js";
-
+import {StatusCodes}  from "http-status-codes"
 
 export const getMeetings=async (req,res)=>{
     try {
@@ -15,7 +15,7 @@ export const getSpecificMeeting=async(req,res)=>{
     try {
         const {id}=req.params;
         const meeting=await Meeting.findById({_id:id});
-        res.status(200).json(meeting)
+        res.status(StatusCodes.OK).json(meeting)
     } catch (error) {
         res.status(404).json({message:error.message});
     }
